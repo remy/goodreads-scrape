@@ -147,8 +147,6 @@ function parseBooks(body) {
 
   const $ = cheerio.load(body);
 
-  require('fs').writeFileSync('test.html', body, 'utf8');
-
   const res = $('.bookalike')
     .map((i, tr) => {
       const el = $(tr);
@@ -237,7 +235,7 @@ function parseBooks(body) {
  * @property {string} goodreads
  * @property {number} goodreads_id
  * @property {string} cover url to cover scaled to 315px wide
- * @property {string} [review]
+ * @property {string|null} [review]
  * @property {boolean} spoiler whether the review contains spoilers
  * @property {string} slug the slugified title
  */
